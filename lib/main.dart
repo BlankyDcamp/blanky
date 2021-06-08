@@ -13,6 +13,7 @@ class Blanky extends StatelessWidget {
       title: 'Blanky',
       theme: ThemeData(
         primarySwatch: Colors.purple,
+        primaryColor: Color(0xff7A63FF),
       ),
       home: SplashPage(),
     );
