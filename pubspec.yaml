@@ -23,10 +23,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mvc_pattern:
 
-  webview_flutter: ^2.0.8 # 카카오 로그인 대응용
-  shared_preferences: ^2.0.6
+  kakao_flutter_sdk: ^0.6.3 # Kakao Login
+  shared_preferences: ^2.0.6 # User Token 저장
+  http: ^0.13.3 # 서버와 통신
+  url_launcher: ^6.0.6
+
 
 dev_dependencies:
   flutter_test:
