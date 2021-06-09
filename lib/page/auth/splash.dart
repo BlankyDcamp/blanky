@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:blanky/page/core.dart';
 import 'package:flutter/material.dart';
 
 /// 스플래시 페이지
@@ -11,13 +14,21 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     ///userPref 확인
+    Timer(Duration(seconds: 1), (){
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => CorePage())
+      );
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      body: Center(
+        child: Text("Splash"),
+      ),
     );
   }
 }
