@@ -83,12 +83,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: TextButton(
-          child: Text("Splash"),
-          onPressed: (){
-            showLoginDialog();
-          },
-        ),
+        child: Text("Splash")
       ),
     );
   }
