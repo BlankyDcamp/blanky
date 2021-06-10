@@ -1,4 +1,4 @@
-import 'package:blanky/page/auth/splash.dart';
+import 'package:blanky/page/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk/all.dart';
 

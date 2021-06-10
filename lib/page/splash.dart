@@ -73,6 +73,7 @@ class _SplashPageState extends State<SplashPage> {
   showLoginDialog(){
     showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (context){
           return LoginDialog((){login();});
         }
