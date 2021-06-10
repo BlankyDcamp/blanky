@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:blanky/page/auth/login/login.dart';
 import 'package:blanky/page/auth/register/register.dart';
+import 'package:blanky/page/core.dart';
 import 'package:blanky/page/home/home.dart';
 import 'package:flutter/material.dart';
 
@@ -16,10 +18,23 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
 
+  API api = API();
+
   @override
   void initState() {
     ///userPref 확인
-    login();
+    api.checkTokenValid().then((v) {
+      if(v) {
+        ///토큰 정상 확인됨
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context)=>CorePage())
+        );
+      } else {
+        showLoginDialog();
+      }
+    });
+
     super.initState();
   }
 
@@ -28,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
       String authCode = await AuthCodeClient.instance.request();
       AccessTokenResponse token = await AuthApi.instance.issueAccessToken(authCode);
       AccessTokenStore.instance.toStore(token);
-      int result = await API().getLoginResult(token.accessToken);
+      int result = await api.getLoginResult(token.accessToken);
       if(result==200){
         ///정상진입
         Navigator.pushReplacement(
@@ -55,11 +70,25 @@ class _SplashPageState extends State<SplashPage> {
     }
   }
 
+  showLoginDialog(){
+    showDialog(
+        context: context,
+        builder: (context){
+          return LoginDialog((){login();});
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Splash"),
+        child: TextButton(
+          child: Text("Splash"),
+          onPressed: (){
+            showLoginDialog();
+          },
+        ),
       ),
     );
   }
