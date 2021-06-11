@@ -31,11 +31,9 @@ class _SplashPageState extends State<SplashPage> {
             MaterialPageRoute(builder: (context)=>CorePage())
         );
       } else {
-        showRegisterDialog();
-        //showLoginDialog();
+        showLoginDialog();
       }
     });
-
     super.initState();
   }
 
@@ -50,7 +48,7 @@ class _SplashPageState extends State<SplashPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (context) => HomePage()
+              builder: (context) => CorePage()
           )
         );
       } else {
@@ -62,6 +60,22 @@ class _SplashPageState extends State<SplashPage> {
       print(e);
     } catch (e) {
       print(e);
+    }
+  }
+
+  void register() async {
+    ///2차 진행 전까지는 SCHOOL로 통일
+    int result = await api.signUp("SCHOOL");
+    if(result != 404) {
+      ///성공
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CorePage()
+          )
+      );
+    } else {
+      ///토큰없음
     }
   }
 
@@ -80,7 +94,9 @@ class _SplashPageState extends State<SplashPage> {
         context: context,
         barrierDismissible: false,
         builder: (context){
-          return RegisterDialog((){print("asd");});
+          return RegisterDialog((){
+            print("asd");
+          });
         }
     );
   }

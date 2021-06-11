@@ -4,13 +4,55 @@ import 'package:flutter/material.dart';
 
 /// 회원가입 페이지 (상세정보 입력)
 
-class RegisterDialog extends StatelessWidget {
+class RegisterDialog extends StatefulWidget {
   final Function onRegisterButtonTap;
   RegisterDialog(this.onRegisterButtonTap);
+
+  _RegisterDialogState createState() => _RegisterDialogState();
+}
+
+class _RegisterDialogState extends State<RegisterDialog> {
+
+
+  bool isButtonTapped = false;
+
+  onButtonTap() {
+    widget.onRegisterButtonTap();
+    setState(() {
+      isButtonTapped = false;
+    });
+    Navigator.pop(context);
+  }
+
+  cancelTap(){
+    setState(() {
+      isButtonTapped = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Theme.of(context);
+
+    final Decoration buttonDefaultStyle = ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+              color:Theme.of(context).primaryColor
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        )
+    );
+    final Decoration buttonTappedStyle = ShapeDecoration(
+        color: Theme.of(context).primaryColor,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+              color:Theme.of(context).primaryColor
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        )
+    );
+
     return AlertDialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -59,9 +101,36 @@ class RegisterDialog extends StatelessWidget {
               ),
             ),
           ),
-          Image(image: AssetImage('assets/icon_join.png'),)
+          Container(
+            margin: EdgeInsets.only(top: 11,bottom: 14),
+            child: Image(image: AssetImage('assets/icon_join.png'),),
+          ),
+          InkWell(
+            onTap: () => onButtonTap(),
+            onTapDown: (v){
+              setState(() {
+                isButtonTapped = true;
+              });
+            },
+            onTapCancel:()=>cancelTap(),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 12),
+              decoration: isButtonTapped?
+              buttonTappedStyle : buttonDefaultStyle,
+              child: Center(
+                child: Text(
+                  "회원가입",
+                  style: TextStyle(
+                    color: isButtonTapped?
+                        Colors.yellow : Colors.black
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
+
 }
