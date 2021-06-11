@@ -31,7 +31,8 @@ class _SplashPageState extends State<SplashPage> {
             MaterialPageRoute(builder: (context)=>CorePage())
         );
       } else {
-        showLoginDialog();
+        showRegisterDialog();
+        //showLoginDialog();
       }
     });
 
@@ -53,13 +54,7 @@ class _SplashPageState extends State<SplashPage> {
           )
         );
       } else {
-        ///회원가입
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => RegisterDialog()
-            )
-        );
+        showRegisterDialog();
       }
     } on KakaoAuthException catch (e) {
       print(e);
@@ -76,6 +71,16 @@ class _SplashPageState extends State<SplashPage> {
         barrierDismissible: false,
         builder: (context){
           return LoginDialog((){login();});
+        }
+    );
+  }
+
+  showRegisterDialog(){
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context){
+          return RegisterDialog((){print("asd");});
         }
     );
   }

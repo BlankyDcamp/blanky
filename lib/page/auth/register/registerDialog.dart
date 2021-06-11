@@ -23,7 +23,7 @@ class RegisterDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "로그인이 필요한 서비스입니다 :)",
+            "회원가입이 필요한 서비스입니다 :)",
             style: TextStyle(
                 color: appTheme.primaryColor,
                 fontSize: 18,
@@ -51,7 +51,7 @@ class RegisterDialog extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Text(
-                "퀴즈 참여를 위해서는 로그인이 필요합니다.\n로그인하시겠습니까?",
+                "저희 앱의 모든 활동은 회원가입이 필요합니다, 가입하시겠습니가? 취소시 화면이 종료됩니다.",
                 style: TextStyle(
                     fontSize: 14,
                     color: Color(0x80151920)
@@ -59,16 +59,7 @@ class RegisterDialog extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 8),
-            child: GestureDetector(
-              onTap: (){
-                onRegisterButtonTap();
-                Navigator.pop(context);
-              },
-              child: Image(image: AssetImage('assets/kakao_login_button.png')),
-            ),
-          ),
+          Image(image: AssetImage('assets/icon_join.png'),)
         ],
       ),
     );
