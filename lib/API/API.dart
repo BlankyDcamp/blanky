@@ -15,7 +15,7 @@ class API {
           Uri.parse('$address/test'),headers: {'auth':token});
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
-      int resultCode = result["code"] as int;
+      int resultCode = int.parse(result['code']);
       if(resultCode == 200) {
         return true;
       } else {
@@ -55,10 +55,11 @@ class API {
       );
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
-      if(result['code'] == 201) {
+      int resultCode = int.parse(result['code']);
+      if(resultCode == 201) {
         UserPreference().setToken(result['token']);
       }
-      return result['code'];
+      return resultCode;
     } else {
       ///TOKEN이 없으면 404
       return TOKEN_IS_NULL;

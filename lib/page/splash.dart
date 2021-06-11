@@ -84,7 +84,7 @@ class _SplashPageState extends State<SplashPage> {
         context: context,
         barrierDismissible: false,
         builder: (context){
-          return LoginDialog((){login();});
+          return LoginDialog(()=>login());
         }
     );
   }
@@ -94,9 +94,7 @@ class _SplashPageState extends State<SplashPage> {
         context: context,
         barrierDismissible: false,
         builder: (context){
-          return RegisterDialog((){
-            print("asd");
-          });
+          return RegisterDialog(()=>register());
         }
     );
   }
