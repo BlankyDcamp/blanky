@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:blanky/page/auth/login/login.dart';
-import 'package:blanky/page/auth/register/register.dart';
+import 'package:blanky/page/auth/login/loginDialog.dart';
+import 'package:blanky/page/auth/register/registerDialog.dart';
 import 'package:blanky/page/core.dart';
 import 'package:blanky/page/home/home.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +57,7 @@ class _SplashPageState extends State<SplashPage> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => RegisterPage()
+                builder: (context) => RegisterDialog()
             )
         );
       }
