@@ -3,14 +3,13 @@ import 'dart:async';
 import 'package:blanky/page/auth/login/loginDialog.dart';
 import 'package:blanky/page/auth/register/registerDialog.dart';
 import 'package:blanky/page/core.dart';
-import 'package:blanky/page/home/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blanky/API/API.dart';
 import 'package:kakao_flutter_sdk/all.dart';
 
 /// 스플래시 페이지
-///
+
 
 class SplashPage extends StatefulWidget {
   _SplashPageState createState()=> _SplashPageState();
