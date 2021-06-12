@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:blanky/UserPref/userPref.dart';
+import 'package:blanky/model/User.dart';
 import 'package:http/http.dart' as http;
 
 const TOKEN_IS_NULL = 404;
@@ -63,6 +64,28 @@ class API {
     } else {
       ///TOKEN이 없으면 404
       return TOKEN_IS_NULL;
+    }
+  }
+
+  ///현재 토큰 이용하여
+  ///유저 정보 조회
+  Future<User?> getCurrentUserInfo() async {
+    String? token = await UserPreference().getToken();
+    if(token!=null) {
+      final http.Response response = await http.get(
+        Uri.parse('$address/user'),
+        headers: {'auth': token,},
+      );
+      Map<String, dynamic> result = jsonDecode(response.body);
+      print(result); //TODO 로그지우기
+      int resultCode = int.parse(result['code']);
+      if(resultCode == 200) {
+        return User.fromJson(result);
+      } else {
+        return null;
+      }
+    } else {
+      return null;
     }
   }
 }
