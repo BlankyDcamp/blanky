@@ -32,15 +32,3 @@ class User {
 
 
 }
-
-/*
-"id": 38,
-    "nickname": "zizo",
-    "email": "zizo@gmail.com",
-    "dualScore": "100",
-    "soloScore": "100",
-    "profileImg": "https://google.com/d02lmcxizdksjdiasdadkci.jpeg",
-    "comment": "올것이 왔군..",
-    "rank": "1",
-    "totalRank": "22500"
- */
