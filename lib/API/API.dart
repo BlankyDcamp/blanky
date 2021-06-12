@@ -4,7 +4,9 @@ import 'package:blanky/UserPref/userPref.dart';
 import 'package:blanky/model/User.dart';
 import 'package:http/http.dart' as http;
 
-const TOKEN_IS_NULL = 404;
+const GET_REQUEST_SUCCESS = 200;
+const POST_REQUEST_SUCCESS = 201;
+const DATA_NULL = 404;
 
 class API {
   final String address = "http://3.37.119.81:8000/api";
@@ -17,7 +19,7 @@ class API {
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
       int resultCode = int.parse(result['code']);
-      if(resultCode == 200) {
+      if(resultCode == GET_REQUEST_SUCCESS) {
         return true;
       } else {
         return false;
@@ -57,13 +59,13 @@ class API {
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
       int resultCode = int.parse(result['code']);
-      if(resultCode == 201) {
+      if(resultCode == POST_REQUEST_SUCCESS) {
         UserPreference().setToken(result['token']);
       }
       return resultCode;
     } else {
       ///TOKEN이 없으면 404
-      return TOKEN_IS_NULL;
+      return DATA_NULL;
     }
   }
 
@@ -79,7 +81,7 @@ class API {
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
       int resultCode = int.parse(result['code']);
-      if(resultCode == 200) {
+      if(resultCode == GET_REQUEST_SUCCESS) {
         return User.fromJson(result);
       } else {
         return null;
