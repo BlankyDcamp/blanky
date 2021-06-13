@@ -9,16 +9,16 @@ class User {
   final int rank;
   final int totalRank;
 
-  User(
-      this.id,
-      this.email,
-      this.dualScore,
-      this.soloScore,
-      this.profileImg,
-      this.comment,
-      this.rank,
-      this.totalRank
-  );
+  User({
+    required this.id,
+    required this.email,
+    required this.dualScore,
+    required this.soloScore,
+    required this.profileImg,
+    required this.comment,
+    required this.rank,
+    required this.totalRank
+  });
 
   User.fromJson(Map<String, dynamic> json) :
     id = json['id'],
