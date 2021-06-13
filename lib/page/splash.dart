@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:blanky/page/auth/login/loginDialog.dart';
 import 'package:blanky/page/auth/register/registerDialog.dart';
+import 'package:blanky/page/auth/auth.dart';
 import 'package:blanky/page/core.dart';
 import 'package:flutter/material.dart';
 
@@ -30,72 +31,14 @@ class _SplashPageState extends State<SplashPage> {
             MaterialPageRoute(builder: (context)=>CorePage())
         );
       } else {
-        showLoginDialog();
+        ///토큰이 없거나 유효하지 않음, 인증페이지 열림 
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context)=>AuthPage())
+        );
       }
     });
     super.initState();
-  }
-
-  void login() async {
-    try {
-      String authCode = await AuthCodeClient.instance.request();
-      AccessTokenResponse token = await AuthApi.instance.issueAccessToken(authCode);
-      AccessTokenStore.instance.toStore(token);
-      int result = await api.getLoginResult(token.accessToken);
-      if(result==200){
-        ///정상진입
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) => CorePage()
-          )
-        );
-      } else {
-        showRegisterDialog();
-      }
-    } on KakaoAuthException catch (e) {
-      print(e);
-    } on KakaoClientException catch (e) {
-      print(e);
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  void register() async {
-    ///2차 진행 전까지는 SCHOOL로 통일
-    int result = await api.signUp("SCHOOL");
-    if(result != 404) {
-      ///성공
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) => CorePage()
-          )
-      );
-    } else {
-      ///토큰없음
-    }
-  }
-
-  showLoginDialog(){
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context){
-          return LoginDialog(()=>login());
-        }
-    );
-  }
-
-  showRegisterDialog(){
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context){
-          return RegisterDialog(()=>register());
-        }
-    );
   }
 
   @override
