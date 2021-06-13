@@ -82,7 +82,9 @@ class API {
       print(result); //TODO 로그지우기
       int resultCode = int.parse(result['code']);
       if(resultCode == GET_REQUEST_SUCCESS) {
-        return User.fromJson(result);
+        print(result['data'].runtimeType);
+        Map<String, dynamic> data = Map<String, dynamic>.from(result['data']);
+        return User.fromJson(data);
       } else {
         return null;
       }
