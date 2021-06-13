@@ -3,7 +3,7 @@
 import 'package:blanky/page/home/home.dart';
 import 'package:blanky/page/mypage/mypage.dart';
 import 'package:blanky/page/ranking/ranking.dart';
-import 'package:blanky/page/widget/CoreNavigationWidget.dart';
+import 'package:blanky/page/coreNavigationWidget.dart';
 import 'package:flutter/material.dart';
 
 class CorePage extends StatefulWidget {

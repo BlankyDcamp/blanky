@@ -27,7 +27,7 @@ dependencies:
   kakao_flutter_sdk: ^0.6.3 # Kakao Login
   shared_preferences: ^2.0.6 # User Token 저장
   http: ^0.13.3 # 서버와 통신
-  url_launcher: ^6.0.6
+  intl: ^0.17.0 # Number Format
 
 
 dev_dependencies:
