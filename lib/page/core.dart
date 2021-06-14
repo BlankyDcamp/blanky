@@ -14,15 +14,18 @@ class CorePage extends StatefulWidget {
 class _CorePageState extends State<CorePage> {
   int currentPage = 1;
 
+  final rankingPage = RankingPage();
+  final homePage = HomePage();
+  final myPage = MyPage();
+
   Widget? coreWidget() {
-    Size screenSize = MediaQuery.of(context).size;
     switch(currentPage) {
       case 0:
-        return RankingPage();
+        return rankingPage;
       case 1:
-        return HomePage();
+        return homePage;
       case 2:
-        return MyPage();
+        return myPage;
     }
   }
 
