@@ -12,6 +12,7 @@ class Blanky extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     KakaoContext.clientId = Keys().clientKey;
+    KakaoContext.javascriptClientId = Keys().jsKey;
     return MaterialApp(
       title: 'Blanky',
       theme: ThemeData(
