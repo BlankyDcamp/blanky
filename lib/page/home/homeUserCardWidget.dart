@@ -20,6 +20,7 @@ class HomeUserCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24)
         ),
+        elevation: 3,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15,vertical: 9),
           child: Row(

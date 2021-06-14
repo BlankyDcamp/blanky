@@ -1,3 +1,5 @@
+import 'package:blanky/page/dual/dualDifficultySelectPage.dart';
+import 'package:blanky/page/solo/soloDifficultySelectPage.dart';
 import 'package:flutter/material.dart';
 import 'package:blanky/API/API.dart';
 import 'package:blanky/model/User.dart';
@@ -77,8 +79,11 @@ class _HomePageState extends State<HomePage> {
                           end: Alignment.topLeft,
                           colors: [Color(0xff7A63FF),Color(0xff63C7FF),],
                         ),
-                            (){
-                          print("솔로모드");
+                        (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>SoloDifficultySelectPage())
+                          );
                         }
                     ),
                   ),
@@ -93,15 +98,31 @@ class _HomePageState extends State<HomePage> {
                           end: Alignment.topRight,
                           colors: [Color(0xff7A63FF),Color(0xffD663FF)],
                         ),
-                            (){
-                          print("듀얼모드");
+                        (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>DualDifficultySelectPage())
+                          );
                         }
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 19),
+                child: Text(
+                  "인기있는 챕터",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff585858)
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       )
