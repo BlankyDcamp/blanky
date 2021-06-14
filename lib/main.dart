@@ -1,3 +1,4 @@
+import 'package:blanky/keys.dart';
 import 'package:blanky/page/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk/all.dart';
@@ -10,7 +11,7 @@ class Blanky extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    KakaoContext.clientId = "d5c17ab349cf211f9b2dd0cf150ee456";
+    KakaoContext.clientId = Keys().clientKey;
     return MaterialApp(
       title: 'Blanky',
       theme: ThemeData(
