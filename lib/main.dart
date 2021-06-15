@@ -20,6 +20,7 @@ class Blanky extends StatelessWidget {
         primaryColor: Color(0xff7A63FF),
         primaryColorLight: Color(0xffB1A4FF),
       ),
+      debugShowCheckedModeBanner: false,
       home: SplashPage(),
     );
   }

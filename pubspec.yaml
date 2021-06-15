@@ -28,6 +28,7 @@ dependencies:
   shared_preferences: ^2.0.6 # User Token 저장
   http: ^0.13.3 # 서버와 통신
   intl: ^0.17.0 # Number Format
+  flutter_svg: ^0.22.0 # SVG 자료 사용
 
 
 dev_dependencies:
@@ -52,6 +53,11 @@ flutter:
   assets:
     - assets/icon_kakao_login.png
     - assets/icon_join.png
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat/Montserrat-ExtraBold.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
