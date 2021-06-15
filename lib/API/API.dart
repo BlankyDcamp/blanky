@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 const GET_REQUEST_SUCCESS = 200;
 const POST_REQUEST_SUCCESS = 201;
 const DATA_NULL = 404;
+const CODE_PARSE_FAILED=1000;
 
 class API {
   final String address = "http://3.37.119.81:8000/api";
@@ -21,7 +22,7 @@ class API {
       print(result); //TODO 로그지우기
       int resultCode;
       if(result['code'].runtimeType != int) {
-        resultCode = int.parse(result['code']);
+        resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
       } else {
         resultCode = result['code'];
       }
@@ -46,9 +47,10 @@ class API {
     /// 응답코드
     /// 200 - 로그인 성공
     /// 410 - 가입되어있지 않음
+    /// 1000 - code 파싱 실패
     int resultCode;
     if(result['code'].runtimeType != int) {
-      resultCode = int.parse(result['code']);
+      resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
     } else {
       resultCode = result['code'];
     }
@@ -73,7 +75,7 @@ class API {
       print(result); //TODO 로그지우기
       int resultCode;
       if(result['code'].runtimeType != int) {
-        resultCode = int.parse(result['code']);
+        resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
       } else {
         resultCode = result['code'];
       }
@@ -101,7 +103,7 @@ class API {
       print(result); //TODO 로그지우기
       int resultCode;
       if(result['code'].runtimeType != int) {
-        resultCode = int.parse(result['code']);
+        resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
       } else {
         resultCode = result['code'];
       }
