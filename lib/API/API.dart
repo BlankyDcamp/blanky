@@ -14,6 +14,7 @@ class API {
   Future<bool> checkTokenValid() async {
     String? token = await UserPreference().getToken();
     if(token!=null) {
+      //TODO: SocketException 처리
       final http.Response response = await http.get(
           Uri.parse('$address/test'),headers: {'auth':token});
       Map<String, dynamic> result = jsonDecode(response.body);
@@ -35,6 +36,7 @@ class API {
   }
 
   Future<int> getLoginResult(String token) async {
+    //TODO: SocketException 처리
     final http.Response response = await http.get(
       Uri.parse('$address/auth/kakao/login'),headers: {'auth':token});
     Map<String, dynamic> result = jsonDecode(response.body);
@@ -56,6 +58,7 @@ class API {
   Future<int> signUp(String school) async {
     String? token = await UserPreference().getToken();
     if(token!=null) {
+      //TODO: SocketException 처리
       final http.Response response = await http.post(
         Uri.parse('$address/auth/signup'),
         headers: {
@@ -89,6 +92,7 @@ class API {
   Future<User?> getCurrentUserInfo() async {
     String? token = await UserPreference().getToken();
     if(token!=null) {
+      //TODO: SocketException 처리
       final http.Response response = await http.get(
         Uri.parse('$address/user'),
         headers: {'auth': token,},
