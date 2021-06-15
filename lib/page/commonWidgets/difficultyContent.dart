@@ -18,7 +18,7 @@ class DifficultyContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
-          flex: 5,
+          flex: 6,
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 24,horizontal: 24),
             child: Column(
@@ -48,7 +48,7 @@ class DifficultyContent extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 5,
+          flex: 4,
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Container(

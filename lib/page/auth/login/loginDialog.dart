@@ -18,13 +18,13 @@ class LoginDialog extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Text(
             "로그인이 필요한 서비스입니다 :)",
             style: TextStyle(
               color: appTheme.primaryColor,
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold
             ),
           ),
