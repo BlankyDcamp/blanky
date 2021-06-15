@@ -103,7 +103,7 @@ class _RegisterDialogState extends State<RegisterDialog> {
           ),
           Container(
             margin: EdgeInsets.only(top: 11,bottom: 14),
-            child: Image(image: AssetImage('assets/icon_join.png'),),
+            child: Image(image: AssetImage('assets/icons/icon_join.png'),),
           ),
           InkWell(
             onTap: () => onButtonTap(),

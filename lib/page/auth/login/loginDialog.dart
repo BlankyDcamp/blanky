@@ -64,7 +64,7 @@ class LoginDialog extends StatelessWidget {
                 onKakaoLoginButtonTap();
                 Navigator.pop(context);
               },
-              child: Image(image: AssetImage('assets/icon_kakao_login.png')),
+              child: Image(image: AssetImage('assets/icons/icon_kakao_login.png')),
             ),
           ),
         ],

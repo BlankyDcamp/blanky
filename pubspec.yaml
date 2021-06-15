@@ -51,8 +51,14 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/icon_kakao_login.png
-    - assets/icon_join.png
+    - assets/icons/icon_kakao_login.png
+    - assets/icons/icon_join.png
+    - assets/icons/icon_solo_easy.svg
+    - assets/icons/icon_solo_normal.svg
+    - assets/icons/icon_solo_hard.svg
+    - assets/icons/icon_dual_easy.svg
+    - assets/icons/icon_dual_normal.svg
+    - assets/icons/icon_dual_hard.svg
 
   fonts:
     - family: Montserrat
