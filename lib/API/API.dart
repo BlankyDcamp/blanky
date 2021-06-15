@@ -18,7 +18,12 @@ class API {
           Uri.parse('$address/test'),headers: {'auth':token});
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
-      int resultCode = int.parse(result['code']);
+      int resultCode;
+      if(result['code'].runtimeType != int) {
+        resultCode = int.parse(result['code']);
+      } else {
+        resultCode = result['code'];
+      }
       if(resultCode == GET_REQUEST_SUCCESS) {
         return true;
       } else {
@@ -39,7 +44,12 @@ class API {
     /// 응답코드
     /// 200 - 로그인 성공
     /// 410 - 가입되어있지 않음
-    int resultCode = int.parse(result['code']);
+    int resultCode;
+    if(result['code'].runtimeType != int) {
+      resultCode = int.parse(result['code']);
+    } else {
+      resultCode = result['code'];
+    }
     return resultCode;
   }
 
@@ -58,7 +68,12 @@ class API {
       );
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
-      int resultCode = int.parse(result['code']);
+      int resultCode;
+      if(result['code'].runtimeType != int) {
+        resultCode = int.parse(result['code']);
+      } else {
+        resultCode = result['code'];
+      }
       if(resultCode == POST_REQUEST_SUCCESS) {
         UserPreference().setToken(result['token']);
       }
@@ -80,7 +95,12 @@ class API {
       );
       Map<String, dynamic> result = jsonDecode(response.body);
       print(result); //TODO 로그지우기
-      int resultCode = int.parse(result['code']);
+      int resultCode;
+      if(result['code'].runtimeType != int) {
+        resultCode = int.parse(result['code']);
+      } else {
+        resultCode = result['code'];
+      }
       if(resultCode == GET_REQUEST_SUCCESS) {
         Map<String, dynamic> data = Map<String, dynamic>.from(result['data']);
         return User.fromJson(data);
