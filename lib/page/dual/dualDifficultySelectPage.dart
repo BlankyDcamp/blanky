@@ -1,3 +1,4 @@
+import 'package:blanky/page/commonWidgets/difficultyContent.dart';
 import 'package:blanky/page/commonWidgets/gradientBox.dart';
 import 'package:flutter/material.dart';
 
@@ -60,8 +61,16 @@ class DualDifficultySelectPage extends StatelessWidget {
                     height: 45,
                     width: 45,
                     decoration: BoxDecoration(
-                      color: appTheme.primaryColor,
-                      shape: BoxShape.circle
+                        color: appTheme.primaryColor,
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x40000000),
+                            blurRadius: 4.0,
+                            spreadRadius: 0.0,
+                            offset: Offset(1.5, 1.5), // shadow direction: bottom right
+                          ),
+                        ]
                     ),
                     child: Material(
                       color: Colors.transparent,
@@ -76,7 +85,7 @@ class DualDifficultySelectPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ),
                 ],
               ),
@@ -92,8 +101,10 @@ class DualDifficultySelectPage extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 5),
                         child: GradientBox(
-                          content: Container(
-                            width: screenSize.width,
+                          content: DifficultyContent(
+                            title: "EASY",
+                            description: "수준 : 초1~ 초6",
+                            iconPath: "assets/icons/icon_dual_easy.svg",
                           ),
                           circularRadius: 16,
                           elevation: 2,
@@ -111,8 +122,10 @@ class DualDifficultySelectPage extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 5),
                         child: GradientBox(
-                          content: Container(
-                            width: screenSize.width,
+                          content: DifficultyContent(
+                            title: "NORMAL",
+                            description: "수준 : 중1~ 중3",
+                            iconPath: "assets/icons/icon_dual_normal.svg",
                           ),
                           circularRadius: 16,
                           elevation: 2,
@@ -130,8 +143,10 @@ class DualDifficultySelectPage extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 5),
                         child: GradientBox(
-                          content: Container(
-                            width: screenSize.width,
+                          content: DifficultyContent(
+                            title: "HARD",
+                            description: "수준 : 고1~ 일반인",
+                            iconPath: "assets/icons/icon_dual_hard.svg",
                           ),
                           circularRadius: 16,
                           elevation: 2,

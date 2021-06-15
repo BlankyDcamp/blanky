@@ -53,7 +53,10 @@ class GradientBox extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.all(Radius.circular(circularRadius!)),
           onTap: onTap,
-          child: content,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(circularRadius!),
+            child: content,
+          ),
         ),
       ),
     );
