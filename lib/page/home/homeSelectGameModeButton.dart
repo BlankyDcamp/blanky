@@ -10,7 +10,6 @@ class HomeSelectGameModeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData appTheme = Theme.of(context);
     return Container(
       decoration: ShapeDecoration(
         gradient: boxGradient,

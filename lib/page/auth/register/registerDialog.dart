@@ -1,5 +1,3 @@
-
-import 'package:blanky/API/API.dart';
 import 'package:flutter/material.dart';
 
 /// 회원가입 페이지 (상세정보 입력)
