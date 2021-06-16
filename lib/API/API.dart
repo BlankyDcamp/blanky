@@ -20,7 +20,6 @@ class API {
         final http.Response response = await http.get(
             Uri.parse('$address/test'),headers: {'auth':token});
         Map<String, dynamic> result = jsonDecode(response.body);
-        print(result); //TODO 로그지우기
         int resultCode;
         if(result['code'].runtimeType != int) {
           resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
@@ -45,7 +44,6 @@ class API {
       final http.Response response = await http.get(
           Uri.parse('$address/auth/kakao/login'),headers: {'auth':token});
       Map<String, dynamic> result = jsonDecode(response.body);
-      print(result); //TODO 로그지우기
       ///발급받은 token 을 Pref 에 저장해줌
       UserPreference().setToken(result['token']);
       /// 응답코드
@@ -79,7 +77,6 @@ class API {
           }),
         );
         Map<String, dynamic> result = jsonDecode(response.body);
-        print(result); //TODO 로그지우기
         int resultCode;
         if(result['code'].runtimeType != int) {
           resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
@@ -110,7 +107,6 @@ class API {
           headers: {'auth': token,},
         );
         Map<String, dynamic> result = jsonDecode(response.body);
-        print(result); //TODO 로그지우기
         int resultCode;
         if(result['code'].runtimeType != int) {
           resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
