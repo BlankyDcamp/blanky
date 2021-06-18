@@ -126,4 +126,64 @@ class API {
       return null;
     }
   }
+
+  Future<int> updateUserInfo(
+      String nickname,
+      String email,
+      String school,
+      String description,
+      ) async {
+    String? token = await UserPreference().getToken();
+    if(token != null) {
+      try{
+        final http.Response response = await http.put(
+            Uri.parse("$address/user"),
+            headers: {'auth': token,},
+            body: {
+              'nickname' : nickname,
+              'email' : email,
+              'school' : school,
+              'description' : description
+            }
+        );
+        Map<String, dynamic> result = jsonDecode(response.body);
+        int resultCode;
+        if(result['code'].runtimeType != int) {
+          resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
+        } else {
+          resultCode = result['code'];
+        }
+        return resultCode;
+      } catch(e) {
+        return SOCKET_EXCEPTION;
+      }
+    } else {
+      return DATA_NULL;
+    }
+  }
+
+  Future<int> updateUserImage(String image) async {
+    String? token = await UserPreference().getToken();
+    if(token != null) {
+      try{
+        final http.Response response = await http.put(
+          Uri.parse("$address/user/profile"),
+          headers: {'auth': token,},
+          body: {'imgFile' : image}
+        );
+        Map<String, dynamic> result = jsonDecode(response.body);
+        int resultCode;
+        if(result['code'].runtimeType != int) {
+          resultCode = int.tryParse(result['code'])??CODE_PARSE_FAILED;
+        } else {
+          resultCode = result['code'];
+        }
+        return resultCode;
+      } catch(e) {
+        return SOCKET_EXCEPTION;
+      }
+    } else {
+      return DATA_NULL;
+    }
+  }
 }
