@@ -5,6 +5,7 @@ class RankingPage extends StatefulWidget {
   _RankingPageState createState() => _RankingPageState();
 }
 
+///랭킹 페이지
 class _RankingPageState extends State<RankingPage> {
 
   @override

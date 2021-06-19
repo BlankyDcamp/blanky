@@ -34,7 +34,7 @@ class _CorePageState extends State<CorePage> {
     return Scaffold(
       body: Stack(
         children: [
-          coreWidget()!,
+          coreWidget()!, /// Navigation Widget 터치 시 바뀜
           Align(
             alignment: Alignment.bottomCenter,
             child: CoreNavigationWidget(
