@@ -1,3 +1,4 @@
+import 'package:blanky/page/commonWidget/chapterItem.dart';
 import 'package:blanky/page/dual/dualDifficultySelectPage.dart';
 import 'package:blanky/page/solo/soloDifficultySelectPage.dart';
 import 'package:flutter/material.dart';
@@ -122,6 +123,22 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 19),
+              child: Column(
+                children: [
+                  ChapterItem("title","description","3314",(){}),
+                  ChapterItem("title","description","3314",(){}),
+                  ChapterItem("title","description","3314",(){}),
+                  ChapterItem("title","description","3314",(){}),
+                  ChapterItem("title","description","3314",(){}),
+
+                ],
+              ),
+            ),
+            Container(
+              height: 100,
             ),
           ],
         ),
