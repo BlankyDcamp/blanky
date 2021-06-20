@@ -1,5 +1,5 @@
-import 'package:blanky/page/commonWidgets/difficultyContent.dart';
-import 'package:blanky/page/commonWidgets/gradientBox.dart';
+import 'package:blanky/page/commonWidget/difficultyContent.dart';
+import 'package:blanky/page/commonWidget/gradientBox.dart';
 import 'package:flutter/material.dart';
 
 class DualDifficultySelectPage extends StatelessWidget {
