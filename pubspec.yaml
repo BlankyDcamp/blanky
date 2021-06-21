@@ -29,6 +29,7 @@ dependencies:
   http: ^0.13.3 # 서버와 통신
   intl: ^0.17.0 # Number Format
   flutter_svg: ^0.22.0 # SVG 자료 사용
+  cached_network_image: ^3.0.0 #이미지 캐시
 
 
 dev_dependencies:
@@ -60,6 +61,7 @@ flutter:
     - assets/icons/icon_dual_normal.svg
     - assets/icons/icon_dual_hard.svg
     - assets/icons/icon_emoji_fire.svg
+    - assets/icons/icon_arrow_down.svg
 
   fonts:
     - family: Montserrat
