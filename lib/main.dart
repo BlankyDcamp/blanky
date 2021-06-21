@@ -1,3 +1,4 @@
+import 'package:blanky/blankyTheme.dart';
 import 'package:blanky/keys.dart';
 import 'package:blanky/page/splash.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +16,7 @@ class Blanky extends StatelessWidget {
     KakaoContext.javascriptClientId = Keys().jsKey;
     return MaterialApp(
       title: 'Blanky',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        primaryColor: Color(0xff7A63FF),
-        primaryColorLight: Color(0xffB1A4FF),
-      ),
+      theme: blankyTheme,
       debugShowCheckedModeBanner: false,
       home: SplashPage(),
     );
