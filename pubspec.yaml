@@ -74,9 +74,9 @@ flutter:
         - asset: assets/fonts/NotoSans/NotoSansKR-Regular.otf
     - family: SairaSemiCondensed
       fonts:
-        - asset: assets/fonts/SairaSemiCondensed/SairaSemiCondensed-ExtraBold.otf
+        - asset: assets/fonts/SairaSemiCondensed/SairaSemiCondensed-ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/SairaSemiCondensed/SairaSemiCondensed-Bold.otf
+        - asset: assets/fonts/SairaSemiCondensed/SairaSemiCondensed-Bold.ttf
           weight: 700
     - family: Saira
       fonts:
