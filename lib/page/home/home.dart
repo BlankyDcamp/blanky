@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                               }
                           ),
                         ),
-                        SizedBox(width: 9,),
+                        SizedBox(width: 15,),
                         Expanded(
                           flex:5,
                           child: HomeSelectGameModeButton(

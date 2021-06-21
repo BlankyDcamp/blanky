@@ -16,11 +16,23 @@ class HomeUserCard extends StatelessWidget {
     return Container(
       width: cardWidth,
       margin: EdgeInsets.symmetric(horizontal: 17),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24)
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0.0, 4.0),
+              blurRadius: 4.0,
+              color: appTheme.primaryColor,
+            ),
+            BoxShadow(
+              offset: Offset(0.0, 4.0),
+              blurRadius: 40.0,
+              color: appTheme.primaryColor,
+            ),
+          ]
         ),
-        elevation: 3,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15,vertical: 9),
           child: Row(

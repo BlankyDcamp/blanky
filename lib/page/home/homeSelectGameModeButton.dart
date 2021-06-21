@@ -10,12 +10,25 @@ class HomeSelectGameModeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData appTheme = Theme.of(context);
     return Container(
       decoration: ShapeDecoration(
         gradient: boxGradient,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(24.0)),
         ),
+        shadows: [
+          BoxShadow(
+            offset: Offset(0.0, 4.0),
+            blurRadius: 4.0,
+            color: appTheme.primaryColor,
+          ),
+          BoxShadow(
+            offset: Offset(0.0, 4.0),
+            blurRadius: 40.0,
+            color: appTheme.primaryColor,
+          ),
+        ]
       ),
       child: Material(
         color: Colors.transparent,
