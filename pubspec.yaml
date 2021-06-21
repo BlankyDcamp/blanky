@@ -80,7 +80,7 @@ flutter:
           weight: 700
     - family: Saira
       fonts:
-        - asset: assets/fonts/Saira/Saira-SemiBold.otf
+        - asset: assets/fonts/Saira/Saira-SemiBold.ttf
           weight: 600
 
   # An image asset can refer to one or more resolution-specific "variants", see
