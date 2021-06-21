@@ -1,5 +1,6 @@
 import 'package:blanky/model/User.dart';
 import 'package:blanky/page/commonFunction/numberParser.dart';
+import 'package:blanky/page/commonWidget/userProfileImage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -38,29 +39,7 @@ class HomeUserCard extends StatelessWidget {
           child: Row(
             children: [
               /// 유저 프로필사진
-              Container(
-                height: 120,
-                width: 120,
-                decoration: BoxDecoration(
-                  color: Color(0xffc4c4c4),
-                  shape: BoxShape.circle
-                ),
-                padding: EdgeInsets.all(5),
-                child: Center(
-                  child: Container(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xffeeeeee),
-                        shape: BoxShape.circle,
-                        image: userinfo!=null ? DecorationImage(
-                            fit: BoxFit.fill,
-                            image: NetworkImage(userinfo!.profileImg)
-                        ) : null
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              UserProfileImage(userinfo!.profileImg,userinfo!.rank, userinfo!.totalRank),
               /// 우측 정보 Text
               Container(
                 margin: EdgeInsets.only(left: 42),
