@@ -39,7 +39,28 @@ class HomeUserCard extends StatelessWidget {
           child: Row(
             children: [
               /// 유저 프로필사진
-              UserProfileImage(userinfo!.profileImg,userinfo!.rank, userinfo!.totalRank),
+              userinfo!=null?
+              UserProfileImage(userinfo!.profileImg,userinfo!.rank, userinfo!.totalRank):
+              Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        shape: BoxShape.circle
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                        strokeWidth: 4,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               /// 우측 정보 Text
               Container(
                 margin: EdgeInsets.only(left: 42),
