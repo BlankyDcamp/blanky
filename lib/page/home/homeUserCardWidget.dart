@@ -40,6 +40,7 @@ class HomeUserCard extends StatelessWidget {
             children: [
               /// 유저 프로필사진
               Container(
+                height: 136,
                 width: 136,
                 child: Center(
                   child: userinfo!=null?
@@ -137,12 +138,10 @@ class HomeUserCard extends StatelessWidget {
                       ),
                       Container(
                         height: 1,
-                        child: Expanded(
-                          child: Divider(
-                            color: appTheme.primaryColor,
-                            thickness: 1,
-                          ),
-                        ),
+                        child: Divider(
+                          color: appTheme.primaryColor,
+                          thickness: 1,
+                        )
                       ),
                       Container(
                         child: Row(
