@@ -37,11 +37,11 @@ class HomeUserCard extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15,vertical: 9),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               /// 유저 프로필사진
               Container(
                 height: 136,
-                width: 136,
                 child: Center(
                   child: userinfo!=null?
                   UserProfileImage(userinfo!.profileImg,userinfo!.rank, userinfo!.totalRank):
@@ -111,7 +111,7 @@ class HomeUserCard extends StatelessWidget {
                               child: Align(
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "${userinfo!=null?NumberParser().parseNumber(userinfo!.dualScore):"0"}",
+                                  "${userinfo!=null?NumberParser().shrinkNumber(userinfo!.dualScore):"0"}",
                                   style: TextStyle(
                                     fontSize: 36,
                                     fontFamily: 'SairaSemiCondensed',
@@ -145,9 +145,9 @@ class HomeUserCard extends StatelessWidget {
                       ),
                       Container(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
-                              flex: 2,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -163,7 +163,7 @@ class HomeUserCard extends StatelessWidget {
                                     TextSpan(
                                         children: [
                                           TextSpan(
-                                            text:"${userinfo!=null?NumberParser().parseNumber(userinfo!.rank):"0"}",
+                                            text:"${userinfo!=null?NumberParser().shrinkNumber(userinfo!.rank):"0"}",
                                             style: TextStyle(
                                                 fontStyle: FontStyle.normal,
                                                 fontSize: 14,
@@ -186,14 +186,13 @@ class HomeUserCard extends StatelessWidget {
                               ),
                             ),
                             Expanded(
-                              flex: 2,
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text.rich(
                                   TextSpan(
                                       children: [
                                         TextSpan(
-                                          text:"${userinfo!=null?NumberParser().parseNumber(userinfo!.totalRank):"0"} ",
+                                          text:"${userinfo!=null?NumberParser().shrinkNumber(userinfo!.totalRank):"0"} ",
                                           style: TextStyle(
                                               fontStyle: FontStyle.normal,
                                               fontSize: 14,

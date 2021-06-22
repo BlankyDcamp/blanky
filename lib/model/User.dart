@@ -32,6 +32,4 @@ class User {
     description = json['description'],
     rank = json['rank'],
     totalRank = json['totalRank'];
-
-
 }

@@ -1,3 +1,4 @@
+import 'package:blanky/model/Chapter.dart';
 import 'package:blanky/page/commonWidget/chapterItem.dart';
 import 'package:blanky/page/dual/dualDifficultySelectPage.dart';
 import 'package:blanky/page/home/homeBackgroundShape.dart';
@@ -125,40 +126,37 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         ChapterItem(
-                            "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
-                            "Thrive on Stress",
-                            "개정 영어 독해와 작문 동아(권혁승) Lesson1",
-                            3314,
+                            Chapter(
+                              chapterImg: "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
+                              title: "Thrive on Stress",
+                              description: "개정 영어 독해와 작문 동아(권혁승) Lesson1",
+                            ),
                             (){}
                         ),
                         ChapterItem(
-                            "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
-                            "Thrive on Stress",
-                            "개정 영어 독해와 작문 동아(권혁승) Lesson1",
-                            3314,
+                            Chapter(
+                              chapterImg: "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
+                              title: "Thrive on Stress",
+                              description: "개정 영어 독해와 작문 동아(권혁승) Lesson1",
+                            ),
                                 (){}
                         ),
                         ChapterItem(
-                            "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
-                            "Thrive on Stress",
-                            "개정 영어 독해와 작문 동아(권혁승) Lesson1",
-                            3314,
-                                (){}
-                        ),ChapterItem(
-                            "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
-                            "Thrive on Stress",
-                            "개정 영어 독해와 작문 동아(권혁승) Lesson1",
-                            3314,
+                            Chapter(
+                              chapterImg: "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
+                              title: "Thrive on Stress",
+                              description: "개정 영어 독해와 작문 동아(권혁승) Lesson1",
+                            ),
                                 (){}
                         ),
                         ChapterItem(
-                            "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
-                            "Thrive on Stress",
-                            "개정 영어 독해와 작문 동아(권혁승) Lesson1",
-                            3314,
+                            Chapter(
+                              chapterImg: "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
+                              title: "Thrive on Stress",
+                              description: "개정 영어 독해와 작문 동아(권혁승) Lesson1",
+                            ),
                                 (){}
                         ),
-
                       ],
                     ),
                   ),
