@@ -31,12 +31,17 @@ class GradientBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData appTheme = Theme.of(context);
     return Container(
       margin: margin,
       padding: contentPadding,
       decoration: ShapeDecoration(
         gradient: gradient,
         shape: RoundedRectangleBorder(
+          side: BorderSide(
+            color: appTheme.primaryColor,
+            width: 1
+          ),
           borderRadius: BorderRadius.all(Radius.circular(circularRadius!)),
         ),
         shadows: [

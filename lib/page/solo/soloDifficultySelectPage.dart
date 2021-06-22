@@ -1,6 +1,7 @@
 import 'package:blanky/page/commonWidget/difficultyContent.dart';
 import 'package:blanky/page/commonWidget/gradientBox.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SoloDifficultySelectPage extends StatelessWidget {
   @override
@@ -20,8 +21,22 @@ class SoloDifficultySelectPage extends StatelessWidget {
               margin: EdgeInsets.only(top: statusBarHeight + 15),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Container(
+                    height: 48,
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(100),
+                        onTap: ()=>Navigator.pop(context),
+                        child: Center(
+                          child: SvgPicture.asset("assets/icons/icon_arrow_right.svg"),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 20,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -56,36 +71,6 @@ class SoloDifficultySelectPage extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
-                  Container(
-                    height: 45,
-                    width: 45,
-                    decoration: BoxDecoration(
-                      color: appTheme.primaryColor,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x40000000),
-                          blurRadius: 4.0,
-                          spreadRadius: 0.0,
-                          offset: Offset(1.5, 1.5), // shadow direction: bottom right
-                        ),
-                      ]
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(100),
-                        onTap: ()=>Navigator.pop(context),
-                        child: Center(
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),

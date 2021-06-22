@@ -23,7 +23,7 @@ class ChapterItem extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical:0),
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.all(Radius.circular(4.0)),
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 11,horizontal: 12),
             child: Row(

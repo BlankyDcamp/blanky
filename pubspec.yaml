@@ -62,6 +62,7 @@ flutter:
     - assets/icons/icon_dual_hard.svg
     - assets/icons/icon_emoji_fire.svg
     - assets/icons/icon_arrow_down.svg
+    - assets/icons/icon_arrow_right.svg
     - assets/icons/rank/icon_rank_larva.svg
     - assets/icons/rank/icon_rank_butterfly.svg
     - assets/icons/rank/icon_rank_frog.svg
