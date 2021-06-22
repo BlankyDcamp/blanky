@@ -39,138 +39,189 @@ class HomeUserCard extends StatelessWidget {
           child: Row(
             children: [
               /// 유저 프로필사진
-              userinfo!=null?
-              UserProfileImage(userinfo!.profileImg,userinfo!.rank, userinfo!.totalRank):
-              Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        shape: BoxShape.circle
-                    ),
-                  ),
-                  Center(
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      child: CircularProgressIndicator(
-                        color: Colors.white,
-                        strokeWidth: 4,
+              Container(
+                width: 136,
+                child: Center(
+                  child: userinfo!=null?
+                  UserProfileImage(userinfo!.profileImg,userinfo!.rank, userinfo!.totalRank):
+                  Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey,
+                            shape: BoxShape.circle
+                        ),
                       ),
-                    ),
+                      Center(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 4,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
               /// 우측 정보 Text
-              Container(
-                margin: EdgeInsets.only(left: 42),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    /// ${닉네임}님의 스코어
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text:"${userinfo!=null?userinfo!.nickname:"User"} ",
-                            style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w900,
-                              color: appTheme.primaryColor
-                            ),
-                          ),
-                          TextSpan(
-                            text:"님의 스코어",
-                            style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 12,
-                              color: Color(0xff111111),
-                            ),
-                          ),
-                        ]
-                      )
-                    ),
-                    /// ${dualScore} 점
-                    Text.rich(
-                        TextSpan(
-                            children: [
-                              TextSpan(
-                                text:"${userinfo!=null?NumberParser().parseNumber(userinfo!.dualScore):"0"}",
-                                style: TextStyle(
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.bold,
-                                    color: appTheme.primaryColor
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(left: 14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Text(
+                                  "${userinfo!=null?userinfo!.nickname:"User"} ",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xff0E2984)
+                                  ),
                                 ),
                               ),
-                              TextSpan(
-                                text:" 점",
+                            ),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                "님의 스코어",
                                 style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: Color(0xff383838),
+                                    fontSize: 12,
+                                    color: Color(0xff6b6b6b)
                                 ),
                               ),
-                            ]
+                            ),
+                          ],
                         ),
-                    ),
-                    /// 전체 ${totalRank}명 중 ${rank}등
-                    Text.rich(
-                        TextSpan(
-                            children: [
-                              TextSpan(
-                                text:"전체 ",
-                                style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 13,
-                                  color: Color(0xff5c5c5c),
+                      ),
+                      SizedBox(height: 5,),
+                      Container(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "${userinfo!=null?NumberParser().parseNumber(userinfo!.dualScore):"0"}",
+                                  style: TextStyle(
+                                    fontSize: 36,
+                                    fontFamily: 'SairaSemiCondensed',
+                                    fontWeight: FontWeight.w800,
+                                    color: appTheme.primaryColor,
+                                    height: 1.0
+                                  ),
                                 ),
                               ),
-                              TextSpan(
-                                text:"${userinfo!=null?NumberParser().parseNumber(userinfo!.totalRank):"0"}",
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Text(
+                                "점",
                                 style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 13,
-                                  color: appTheme.primaryColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w800,
+                                    color: Color(0xff6b6b6b)
                                 ),
                               ),
-                              TextSpan(
-                                text:"명 중 ",
-                                style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 13,
-                                  color: Color(0xff5c5c5c),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 1,
+                        child: Expanded(
+                          child: Divider(
+                            color: appTheme.primaryColor,
+                            thickness: 1,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex: 2,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "전체",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(0xff545A3E)
+                                    ),
+                                  ),
+                                  Text.rich(
+                                    TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text:"${userinfo!=null?NumberParser().parseNumber(userinfo!.rank):"0"}",
+                                            style: TextStyle(
+                                                fontStyle: FontStyle.normal,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w700,
+                                                color: appTheme.primaryColor
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text:"등 /",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color(0xff545A3E)
+                                            ),
+                                          ),
+                                        ]
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text.rich(
+                                  TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text:"${userinfo!=null?NumberParser().parseNumber(userinfo!.totalRank):"0"} ",
+                                          style: TextStyle(
+                                              fontStyle: FontStyle.normal,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w700,
+                                              color: appTheme.primaryColor
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text:"명 중",
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              color: Color(0xff545A3E)
+                                          ),
+                                        ),
+                                      ]
+                                  ),
                                 ),
                               ),
-                              TextSpan(
-                                text:"${userinfo!=null?NumberParser().parseNumber(userinfo!.rank):"0"}",
-                                style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 13,
-                                  color: appTheme.primaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text:"등",
-                                style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 13,
-                                  color: Color(0xff5c5c5c),
-                                ),
-                              ),
-                            ]
-                        )
-                    ),
-                  ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         )

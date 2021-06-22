@@ -71,6 +71,9 @@ flutter:
     - assets/icons/rank/icon_rank_bear.svg
     - assets/icons/rank/icon_rank_lion.svg
     - assets/icons/rank/icon_rank_whale.svg
+    - assets/icons/rank/icon_rank_first.svg
+    - assets/icons/rank/icon_rank_second.svg
+    - assets/icons/rank/icon_rank_third.svg
 
   fonts:
     - family: Montserrat

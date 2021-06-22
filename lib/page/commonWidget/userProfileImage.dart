@@ -10,7 +10,6 @@ class UserProfileImage extends StatelessWidget {
   final String imageUrl;
   String get tier {
     double percentage = (rank*100)/totalRank;
-    print(percentage);
     if(percentage>=90) {
       ///larva 상위 95퍼 100%~90%
       return "larva";
@@ -37,6 +36,9 @@ class UserProfileImage extends StatelessWidget {
       return "lion";
     } else if (1>percentage&&percentage>=0) {
       /// whale 상위 1퍼 1%~3등
+      if(rank<=3){
+        return "non";
+      }
       return "whale";
     } else {
       return "non";
@@ -63,7 +65,16 @@ class UserProfileImage extends StatelessWidget {
       case "whale":
         return "assets/icons/rank/icon_rank_whale.svg";
       default:
-        return "assets/icons/rank/icon_rank_whale.svg";
+        switch(rank){
+          case 1:
+            return "assets/icons/rank/icon_rank_first.svg";
+          case 2:
+            return "assets/icons/rank/icon_rank_second.svg";
+          case 3:
+            return "assets/icons/rank/icon_rank_third.svg";
+          default:
+            return "assets/icons/rank/icon_rank_whale.svg";
+        }
     }
   }
 
@@ -97,67 +108,89 @@ class UserProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData appTheme = Theme.of(context);
     return Container(
-      height: 112,
+      height: tier!="non"?112:124,
       width: 112,
       child: Stack(
         children: [
-          CachedNetworkImage(
-            imageUrl: imageUrl,
-            imageBuilder: (context, imageProvider) => Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: imageProvider,
-                    fit: BoxFit.fill,),
-                  color: Colors.grey,
-                  shape: BoxShape.circle
-              ),
-            ),
-            placeholder: (context, url) => Stack(
+          Container(
+            height: 112,
+            width: 112,
+            child: Stack(
               children: [
-                Container(
-                  decoration: BoxDecoration(
+                CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.fill,),
                       color: Colors.grey,
-                      shape: BoxShape.circle
-                  ),
-                ),
-                Center(
-                  child: Container(
-                    height: 50,
-                    width: 50,
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                      strokeWidth: 4,
+                      shape: BoxShape.circle,
+                      boxShadow: tier=="non"?[
+                        BoxShadow(
+                          color: appTheme.primaryColor,
+                          offset: Offset(4.0,4.0),
+                          blurRadius: 20.0
+                        )
+                      ]:null,
                     ),
                   ),
+                  placeholder: (context, url) => Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey,
+                            shape: BoxShape.circle
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 4,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
+                Stack(
+                  children: [
+                    Container(
+                      height: 112,
+                      width: 112,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: Color(tierColorCode),
+                            width: 8
+                        ),
+                      ),
+                    ),
+                    tier!="non"?Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        height: 36,
+                        child: SvgPicture.asset(tierIconPath),
+                      ),
+                    ):SizedBox(),
+                  ],
                 ),
               ],
             ),
-            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
-          Stack(
-            children: [
-              Container(
-                height: 112,
-                width: 112,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                      color: Color(tierColorCode),
-                      width: 8
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  width: 36,
-                  height: 36,
-                  child: SvgPicture.asset(tierIconPath),
-                ),
-              ),
-            ],
-          ),
+          tier=="non"?Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              height: 36,
+              child: SvgPicture.asset(tierIconPath),
+            ),
+          ):SizedBox(),
         ],
       ),
     );
