@@ -28,7 +28,8 @@ class DifficultyContent extends StatelessWidget {
                   title,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
+                    fontFamily: 'SairaSemiCondensed',
+                    fontSize: 36,
                     fontWeight: FontWeight.w800
                   ),
                 ),
@@ -38,9 +39,10 @@ class DifficultyContent extends StatelessWidget {
                 Text(
                   description,
                   style: TextStyle(
-                      color: Color(0xffD6FCF7),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500
+                      color: Colors.white,
+                      fontFamily: 'Saira',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600
                   ),
                 ),
               ],

@@ -88,7 +88,7 @@ class SoloDifficultySelectPage extends StatelessWidget {
                         child: GradientBox(
                           content: DifficultyContent(
                             title: "EASY",
-                            description: "수준 : 초1~ 초6",
+                            description: "이지모드",
                             iconPath: "assets/icons/icon_solo_easy.svg",
                           ),
                           circularRadius: 16,
@@ -109,7 +109,7 @@ class SoloDifficultySelectPage extends StatelessWidget {
                         child: GradientBox(
                           content: DifficultyContent(
                             title: "NORMAL",
-                            description: "수준 : 중1~ 중3",
+                            description: "노멀모드",
                             iconPath: "assets/icons/icon_solo_normal.svg",
                           ),
                           circularRadius: 16,
@@ -130,7 +130,7 @@ class SoloDifficultySelectPage extends StatelessWidget {
                         child: GradientBox(
                           content: DifficultyContent(
                             title: "HARD",
-                            description: "수준 : 고1~ 일반인",
+                            description: "하드모드",
                             iconPath: "assets/icons/icon_solo_hard.svg",
                           ),
                           circularRadius: 16,

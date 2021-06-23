@@ -88,7 +88,7 @@ class DualDifficultySelectPage extends StatelessWidget {
                         child: GradientBox(
                           content: DifficultyContent(
                             title: "EASY",
-                            description: "수준 : 초1~ 초6",
+                            description: "난이도:하",
                             iconPath: "assets/icons/icon_dual_easy.svg",
                           ),
                           circularRadius: 16,
@@ -109,7 +109,7 @@ class DualDifficultySelectPage extends StatelessWidget {
                         child: GradientBox(
                           content: DifficultyContent(
                             title: "NORMAL",
-                            description: "수준 : 중1~ 중3",
+                            description: "난이도:중",
                             iconPath: "assets/icons/icon_dual_normal.svg",
                           ),
                           circularRadius: 16,
@@ -130,7 +130,7 @@ class DualDifficultySelectPage extends StatelessWidget {
                         child: GradientBox(
                           content: DifficultyContent(
                             title: "HARD",
-                            description: "수준 : 고1~ 일반인",
+                            description: "난이도:상",
                             iconPath: "assets/icons/icon_dual_hard.svg",
                           ),
                           circularRadius: 16,
